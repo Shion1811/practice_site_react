@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { Box } from "@mui/system";
 
-export const Image = ({ width = 200, height = 200, fileName, openHandler }) => {
+export const Image = ({ width = 200, height = 200, URL, openHandler, alt }) => {
   const { ref, inView } = useInView();
 
   let css;
@@ -18,8 +18,8 @@ export const Image = ({ width = 200, height = 200, fileName, openHandler }) => {
   return (
     <Box sx={css}>
       <img
-        src={window.location.origin + "/" + fileName}
-        alt="contents"
+        src={URL}
+        alt={alt}
         width={width}
         height={height}
         onClick={() => openHandler(true)}
