@@ -1,4 +1,3 @@
-"use strict";
 import { Image } from "./Image";
 export const Modal = (prop) => {
   return (
