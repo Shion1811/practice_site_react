@@ -1,8 +1,12 @@
+//import = モジュール
 import { Button, Tab, Tabs, Box, Typography, css, AppBar } from "@mui/material";
 import { positions } from "@mui/system";
 import { useState } from "react";
 import { Image } from "./Image";
 import { Modal } from "./Modal";
+import { BrowserRouter, Route } from "react-router-dom";
+import { ImagePage } from "./ImagePage";
+import { useHistory } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -21,15 +25,24 @@ function TabPanel(props) {
 }
 
 export const App = () => {
+  //フック
   const [show, setShow] = useState(false);
   const [value, setValue] = useState(0);
-
+  const history = useHistory();
+  //その他のコード
+  function handleClick() {
+    history.push("/home");
+  }
   const handleChange = (event, newValue) => {
     console.log(newValue);
     setValue(newValue);
+    return;
   };
+  //jsxをリターン
   return (
-    <>
+    <BrowserRouter>
+      <Route path="/image/:index" component={ImagePage}></Route>
+      <Route exact path="/">
       <Box sx={{ width: "100vw", height: "100vh", backgroundColor: "white" }}>
         <Box
           sx={{
@@ -75,11 +88,13 @@ export const App = () => {
           <Box sx={{ marginTop: "70px" }}>
             <TabPanel value={value} index={0}>
               <Typography sx={{ textAlign: "left" }}>1.1</Typography>
+                <a href="/1">
               <Image
                 URL="https://lh3.googleusercontent.com/p9FeAwPp5gPcqSnLuz4m9ylgh3icztO1kOWg6nXy0sf1ZkmXJUddhyqwaxYTnvM41rNIlLRtVRy3d9UPXdPs_y0F8VlZKTVhnjPD_xGG9-LgvF5zgMI7PyLxeK6i9c6JkGBMemryQK-OaXS249PqvJmSz8tLIW8_bHyVKIgeSZMp9v35vAf23I-mK653TbN-_SeE463VXXldy1Ovciz-yJpXPr0zspuY9FiDHj_woHDRxBWlKLLh4Y16s2OLM17Hc9aPUhkarczm6WclkAQpQ6Bxzd7bTtZajO-hvUhcTYTrZLEfB0m5sYga19cMPvOJZlcR5wsiPe8uO-DWVma7sbLSZVcPuBd2r14mGBuApa8ZVKE8VQhp3rxlkg7O_CMD4wQRtrM-LP_q_wvcJOYIn2isYzXnskdVWJcmB1TI4IhNUZkIKMMiyCwvhMfSiATITQT4aL4CzWbSsuLZE_k6Y-fkQjiwydx54njhRusl89zRdSJKq63JMnf6y97XVcQLkfyGVdjjeliE7q_iypXYzdHEcBzR8SNvUe254oK9djhvqdAWIQjck2ieeOATrsMLbo0YsKqssNfKySFGq0X4Ez5FWuAYZsQcteUce_n2rI4v0xfSc1CSaEWM1PwrqjcqShdxs3A3eWCrxAVA3mF_F-hDlSJzKMx4awEVDXR7vxZYXljo8xOqRmeXNBdnDZqqBtx3gyzislSrzasbqwujxzbAkfN83BZbo8SXWH8GAHf_zGbs2mGt9GFdDLiO0EqX-I_oMn9k270fWwlJsG10rt-N191hpvqw17PQvNOHXIC6jiMMmaXx6wK9rlBTGOvQfRgWm2OL-3kme1I90sddHpiE9OYpRPQmBdWkyCOKt-JyNbjYaUNBxBU094AX852gUEQvbkfvlTm4sVrYQsFSbkMxZW9XO-BG4dtt0L__wut31a60uu6bFGUWFdpVBcBLGVmHh_DCl_PFMRFQUJJg0Q=w1454-h1938-no?authuser=0"
                 referrerpolicy="no-referrer"
                 alt="インコの写真1"
               />
+                </a>
               <Image
                 URL="https://lh3.googleusercontent.com/JDqbjzu_jHoShnuMNX_uI-wQI4x00y7h_chUUeZam8HIFT8Hp7az8vI6lo4MAsDNN9VtuAOHX0jA1wPkEeiyzQniq5myvsly2lQs7fHILU8R0eqjs7PqPjvxA5cUsiDi77hYCIJMt3pYgNPuyecEVPsSVMwIvpt3gxf5n6N5RLvl2RtlS6YEqYCm-INZOTKl9F7dMNsRHp_ogE8yuhFSSuRfPR8BvWRc1R_VmqJ7cKk0f6GgCdL2xm-4ilNEap4o5vHp9sYQK1cSqvHMe_yM4eAyACuLmcBSF2UEj3vJC7fjGypw_W8k9IgWY72vv3YQwHJbObbUG5MSGGkRjQCnx9ePAA69LZUc0oUKF9rsDutXEc25KQVuKs1I9IB92C0LWVMFhfTF_DWee6p73Of8RY9Z9QTTivpwWq7eW2UuoeJKtAdVK6U_3bPecUsjTzOFnXqWUNLiKH9wmTp9BxdToI-pV4k-1rufZCoa_NQ-TcTWvniFrZJpL4DHr9TF9fUj9xr6GluRGblEByIIEf77MXhlLhgqAuebJnrT1c5WOpkYcayQO0RAvCvNOdkaB4ZQAZpirRbObT52Mg0_BCN-exXzK130PkH0GzpFo12Up96ZmE5v7iYNzOStoEKrt_g75UoP_B3nGu93r0Zs_YasCM6lgqzsdO_zDZWxCFdrou_hvGx18vh1i-OMWYpNxSVL65WTyM_mOHISWOBSwQh-6V888UmxzTOtws49T1zFCKUtK66r-6U2IQh_AQ4bx8R4Blw1HcForkbWJgZ0Avdp0ocMfxn31YCBW63W7AsoGNiXLsJh-G-IPtHYgAMRhbKJiS6EKnHmSdrLwN2zF4i7_kqbYqFG88oBaGLunXG--ilD6wTYJ2yAZROCaT9gZfjw-yx8TJfVo5bSAARUrYhVIPVBmY_C_TqgdHxzk6siXtVW25mrmYcKi7ykmeQ01JvARdst6ih07gOBjg_J512L=w174-h232-no?authuser=0"
                 referrerpolicy="no-referrer"
@@ -134,6 +149,9 @@ export const App = () => {
         </Box>
       </Box>
       {show && <Modal closeHandler={setShow} />}
-    </>
+      </Route>
+    </BrowserRouter>
   );
 };
+
+//const...定数の値が変更できない
