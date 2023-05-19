@@ -148,12 +148,3 @@ export const ImagePage = (props) => {
     </>
   );
 };
-/*object-fit: contain;
-    position: fixed;
-    top: 40%;
-    left: 63%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 13vw;
-    height: 20vw;
-    */
