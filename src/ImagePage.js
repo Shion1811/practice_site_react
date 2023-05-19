@@ -7,7 +7,7 @@ import { Numbers } from "@mui/icons-material";
 export const ImagePage = (props) => {
   //その他コード
   console.log(props.match);
-  const data = imagePageData[0];
+  const data = imagePageData[1];
   console.log(data);
   //returnしてる（一関数につき一つ）
   return (
@@ -39,19 +39,121 @@ export const ImagePage = (props) => {
               インコ
             </Typography>
           </AppBar>
+          <Box
+            sx={{
+              position: "fixed",
+              inset: 0,
+              margin: "auto",
+              width: "fit-content",
+              height: "fit-content",
+            }}
+          >
+            <img src="/Book.svg" alt="" style={{ width: "80vw" }} />
+          </Box>
+          {/*left写真配置*/}
+          <Box
+            component={"img"}
+            src={imagePageData[1].left}
+            /*視覚障害者向け*/
+            alt=""
+            sx={{
+              objectFit: "contain",
+              position: "fixed",
+              top: "48%",
+              left: "31%",
+              transform: "translate(-50%, -50%)",
+              width: "30vw",
+              height: "30vw",
+            }}
+          />
+          {/*right写真配置*/}
+          {/*imagePageDataの一番目のrightが配列がどうか？ true:false*/}
+          {Array.isArray(imagePageData[1].right) ? (
+            <Box>
+              <Box
+                component={"img"}
+                src={imagePageData[1].right[0]}
+                alt=""
+                sx={{
+                  objectFit: "contain",
+                  position: "fixed",
+                  top: "36%",
+                  left: "62%",
+                  transform: "translate(-50%, -50%)",
+                  width: "13w",
+                  height: "15vw",
+                }}
+              />
+              <Box
+                component={"img"}
+                src={imagePageData[1].right[1]}
+                alt=""
+                sx={{
+                  objectFit: "contain",
+                  position: "fixed",
+                  top: "36%",
+                  left: "75%",
+                  transform: "translate(-50%, -50%)",
+                  width: "13vw",
+                  height: "15vw",
+                }}
+              />
+              <Box
+                component={"img"}
+                src={imagePageData[1].right[2]}
+                alt=""
+                sx={{
+                  objectFit: "contain",
+                  position: "fixed",
+                  top: "61%",
+                  left: "62%",
+                  transform: "translate(-50%, -50%)",
+                  width: "13vw",
+                  height: "15vw",
+                }}
+              />
+              <Box
+                component={"img"}
+                src={imagePageData[1].right[3]}
+                alt=""
+                sx={{
+                  objectFit: "contain",
+                  position: "fixed",
+                  top: "61%",
+                  left: "75%",
+                  transform: "translate(-50%, -50%)",
+                  width: "13vw",
+                  height: "15vw",
+                }}
+              />
+            </Box>
+          ) : (
+            <Box
+              component={"img"}
+              src={imagePageData[1].right}
+              alt=""
+              sx={{
+                objectFit: "contain",
+                position: "fixed",
+                top: "48%",
+                left: "70%",
+                transform: "translate(-50%, -50%)",
+                width: "30vw",
+                height: "30vw",
+              }}
+            ></Box>
+          )}
         </Box>
-      </Box>
-      <Box
-        sx={{
-          position: "fixed",
-          inset: 0,
-          margin: "auto",
-          width: "fit-content",
-          height: "fit-content",
-        }}
-      >
-        <img src="/Book.svg" alt="" style={{ width: "80vw" }} />
       </Box>
     </>
   );
 };
+/*object-fit: contain;
+    position: fixed;
+    top: 40%;
+    left: 63%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 13vw;
+    height: 20vw;
+    */
