@@ -64,7 +64,7 @@ export const App = () => {
   //jsxをリターン
   return (
     <BrowserRouter>
-      <Route path="/image/:index" component={ImagePage}></Route>
+      <Route path="/image/:pageNumber" component={ImagePage}></Route>
       <Route exact path="/">
         <Box sx={{ width: "100vw", height: "100vh", backgroundColor: "white" }}>
           <Box

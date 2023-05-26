@@ -1,14 +1,12 @@
 import { AppBar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { Image } from "./Image";
 import { imagePageData } from "./App";
-import { Numbers } from "@mui/icons-material";
 //ImagePageを宣言
 export const ImagePage = (props) => {
   //その他コード
-  console.log(props.match);
-  const data = imagePageData[1];
-  console.log(data);
+  console.log(props);
+  //const pageNumber = location.params["pageNumber"];
+  const pageNumber = props.match.params["pageNumber"];
   //returnしてる（一関数につき一つ）
   return (
     <>
@@ -53,7 +51,7 @@ export const ImagePage = (props) => {
           {/*left写真配置*/}
           <Box
             component={"img"}
-            src={imagePageData[1].left}
+            src={imagePageData[pageNumber].left}
             /*視覚障害者向け*/
             alt=""
             sx={{
@@ -65,14 +63,15 @@ export const ImagePage = (props) => {
               width: "30vw",
               height: "30vw",
             }}
+            referrerPolicy="no-referrer"
           />
           {/*right写真配置*/}
           {/*imagePageDataの一番目のrightが配列がどうか？ true:false*/}
-          {Array.isArray(imagePageData[1].right) ? (
+          {Array.isArray(imagePageData[pageNumber].right) ? (
             <Box>
               <Box
                 component={"img"}
-                src={imagePageData[1].right[0]}
+                src={imagePageData[pageNumber].right[0]}
                 alt=""
                 sx={{
                   objectFit: "contain",
@@ -83,10 +82,11 @@ export const ImagePage = (props) => {
                   width: "13w",
                   height: "15vw",
                 }}
+                referrerPolicy="no-referrer"
               />
               <Box
                 component={"img"}
-                src={imagePageData[1].right[1]}
+                src={imagePageData[pageNumber].right[1]}
                 alt=""
                 sx={{
                   objectFit: "contain",
@@ -97,10 +97,11 @@ export const ImagePage = (props) => {
                   width: "13vw",
                   height: "15vw",
                 }}
+                referrerPolicy="no-referrer"
               />
               <Box
                 component={"img"}
-                src={imagePageData[1].right[2]}
+                src={imagePageData[pageNumber].right[2]}
                 alt=""
                 sx={{
                   objectFit: "contain",
@@ -111,10 +112,11 @@ export const ImagePage = (props) => {
                   width: "13vw",
                   height: "15vw",
                 }}
+                referrerPolicy="no-referrer"
               />
               <Box
                 component={"img"}
-                src={imagePageData[1].right[3]}
+                src={imagePageData[pageNumber].right[3]}
                 alt=""
                 sx={{
                   objectFit: "contain",
@@ -125,12 +127,13 @@ export const ImagePage = (props) => {
                   width: "13vw",
                   height: "15vw",
                 }}
+                referrerPolicy="no-referrer"
               />
             </Box>
           ) : (
             <Box
               component={"img"}
-              src={imagePageData[1].right}
+              src={imagePageData[pageNumber].right}
               alt=""
               sx={{
                 objectFit: "contain",
@@ -141,6 +144,7 @@ export const ImagePage = (props) => {
                 width: "30vw",
                 height: "30vw",
               }}
+              referrerPolicy="no-referrer"
             ></Box>
           )}
         </Box>
