@@ -54,18 +54,30 @@ export const ImagePage = (props) => {
               display: "flex",
             }}
           >
+            {" "}
             <Box
               sx={{
-                flexGrow: "1",
+                width: "50%",
                 display: "grid",
                 placeContent: "center",
               }}
             >
-              左
+              <Box
+                component={"img"}
+                src={imagePageData[pageNumber].left}
+                /*視覚障害者向け*/
+                alt=""
+                sx={{
+                  width: "100%",
+                  height: "70%",
+                  objectFit: "contain",
+                  marginTop: "20%",
+                }}
+              />
             </Box>
             <Box
               sx={{
-                flexGrow: "1",
+                width: "50%",
                 display: "grid",
                 placeContent: "center",
               }}
