@@ -1,6 +1,7 @@
-import { AppBar, Typography } from "@mui/material";
+import { AppBar, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { imagePageData } from "./App";
+import { ChevronLeft } from "@mui/icons-material";
 //ImagePageを宣言
 export const ImagePage = (props) => {
   //その他コード
@@ -10,7 +11,9 @@ export const ImagePage = (props) => {
   //returnしてる（一関数につき一つ）
   return (
     <>
+      {/*角の白枠背景 */}
       <Box sx={{ width: "100vw", height: "100vh", backgroundColor: "white" }}>
+        {/*背景*/}
         <Box
           sx={{
             width: "97vw",
@@ -26,6 +29,7 @@ export const ImagePage = (props) => {
             margin: "auto",
           }}
         >
+          {/* header*/}
           <AppBar sx={{ backgroundColor: "#AA7739" }}>
             <Typography
               sx={{
@@ -37,116 +41,38 @@ export const ImagePage = (props) => {
               インコ
             </Typography>
           </AppBar>
+          {/*大元の本枠*/}
           <Box
             sx={{
-              position: "fixed",
-              inset: 0,
-              margin: "auto",
-              width: "fit-content",
-              height: "fit-content",
+              backgroundImage: "url(/Book.svg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              width: "calc(700px * 1.6)",
+              height: "calc(400px * 1.6)",
+              backgroundSize: "contain",
+              margin: "100px auto",
+              display: "flex",
             }}
           >
-            <img src="/Book.svg" alt="" style={{ width: "80vw" }} />
-          </Box>
-          {/*left写真配置*/}
-          <Box
-            component={"img"}
-            src={imagePageData[pageNumber].left}
-            /*視覚障害者向け*/
-            alt=""
-            sx={{
-              objectFit: "contain",
-              position: "fixed",
-              top: "48%",
-              left: "31%",
-              transform: "translate(-50%, -50%)",
-              width: "30vw",
-              height: "30vw",
-            }}
-            referrerPolicy="no-referrer"
-          />
-          {/*right写真配置*/}
-          {/*imagePageDataの一番目のrightが配列がどうか？ true:false*/}
-          {Array.isArray(imagePageData[pageNumber].right) ? (
-            <Box>
-              <Box
-                component={"img"}
-                src={imagePageData[pageNumber].right[0]}
-                alt=""
-                sx={{
-                  objectFit: "contain",
-                  position: "fixed",
-                  top: "36%",
-                  left: "62%",
-                  transform: "translate(-50%, -50%)",
-                  width: "13w",
-                  height: "15vw",
-                }}
-                referrerPolicy="no-referrer"
-              />
-              <Box
-                component={"img"}
-                src={imagePageData[pageNumber].right[1]}
-                alt=""
-                sx={{
-                  objectFit: "contain",
-                  position: "fixed",
-                  top: "36%",
-                  left: "75%",
-                  transform: "translate(-50%, -50%)",
-                  width: "13vw",
-                  height: "15vw",
-                }}
-                referrerPolicy="no-referrer"
-              />
-              <Box
-                component={"img"}
-                src={imagePageData[pageNumber].right[2]}
-                alt=""
-                sx={{
-                  objectFit: "contain",
-                  position: "fixed",
-                  top: "61%",
-                  left: "62%",
-                  transform: "translate(-50%, -50%)",
-                  width: "13vw",
-                  height: "15vw",
-                }}
-                referrerPolicy="no-referrer"
-              />
-              <Box
-                component={"img"}
-                src={imagePageData[pageNumber].right[3]}
-                alt=""
-                sx={{
-                  objectFit: "contain",
-                  position: "fixed",
-                  top: "61%",
-                  left: "75%",
-                  transform: "translate(-50%, -50%)",
-                  width: "13vw",
-                  height: "15vw",
-                }}
-                referrerPolicy="no-referrer"
-              />
-            </Box>
-          ) : (
             <Box
-              component={"img"}
-              src={imagePageData[pageNumber].right}
-              alt=""
               sx={{
-                objectFit: "contain",
-                position: "fixed",
-                top: "48%",
-                left: "70%",
-                transform: "translate(-50%, -50%)",
-                width: "30vw",
-                height: "30vw",
+                flexGrow: "1",
+                display: "grid",
+                placeContent: "center",
               }}
-              referrerPolicy="no-referrer"
-            ></Box>
-          )}
+            >
+              左
+            </Box>
+            <Box
+              sx={{
+                flexGrow: "1",
+                display: "grid",
+                placeContent: "center",
+              }}
+            >
+              右
+            </Box>
+          </Box>
         </Box>
       </Box>
     </>
