@@ -107,20 +107,29 @@ export const ImagePage = (props) => {
                 <Box
                   sx={{
                     display: "grid",
-                    gridTemplateColumns: "15vw 15vw",
-                    gridTemplateRows: "13vw 13vw",
+                    gridTemplateColumns: "1fr 1fr",
+                    gridTemplateRows: "1fr 1fr",
                   }}
                 >
                   {/*右側の写真複数回実行*/}
                   {imagePageData[pageNumber].right.map((item) => (
                     <Box
-                      component={"img"}
-                      src={item}
-                      alt=""
-                      referrerPolicy="no-referrer"
-                      width="15vw"
-                      height="13vw"
-                    />
+                      sx={{
+                        display: "grid",
+                      }}
+                    >
+                      <Box
+                        component={"img"}
+                        src={item}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                        sx={{
+                          objectFit: "contain",
+                          width: "80%",
+                          height: "80%",
+                        }}
+                      />
+                    </Box>
                   ))}
                 </Box>
               )}
