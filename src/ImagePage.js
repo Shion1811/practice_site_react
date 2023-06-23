@@ -111,38 +111,17 @@ export const ImagePage = (props) => {
                     gridTemplateRows: "13vw 13vw",
                   }}
                 >
-                  <Box
-                    component={"img"}
-                    src={imagePageData[pageNumber].right[0]}
-                    alt=""
-                    referrerPolicy="no-referrer"
-                    width="15vw"
-                    height="13vw"
-                  />
-                  <Box
-                    component={"img"}
-                    src={imagePageData[pageNumber].right[1]}
-                    alt=""
-                    referrerPolicy="no-referrer"
-                    width="15vw"
-                    height="13vw"
-                  />
-                  <Box
-                    component={"img"}
-                    src={imagePageData[pageNumber].right[2]}
-                    alt=""
-                    referrerPolicy="no-referrer"
-                    width="15vw"
-                    height="13vw"
-                  />
-                  <Box
-                    component={"img"}
-                    src={imagePageData[pageNumber].right[3]}
-                    alt=""
-                    referrerPolicy="no-referrer"
-                    width="15vw"
-                    height="13vw"
-                  />
+                  {/*右側の写真複数回実行*/}
+                  {imagePageData[pageNumber].right.map((item) => (
+                    <Box
+                      component={"img"}
+                      src={item}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                      width="15vw"
+                      height="13vw"
+                    />
+                  ))}
                 </Box>
               )}
             </Box>
