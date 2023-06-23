@@ -55,6 +55,7 @@ export const ImagePage = (props) => {
             }}
           >
             {" "}
+            {/*本の左側*/}
             <Box
               sx={{
                 width: "50%",
@@ -62,6 +63,7 @@ export const ImagePage = (props) => {
                 placeContent: "center",
               }}
             >
+              {/*本の左側の画像表示*/}
               <Box
                 component={"img"}
                 src={imagePageData[pageNumber].left}
@@ -75,6 +77,7 @@ export const ImagePage = (props) => {
                 }}
               />
             </Box>
+            {/*本の右側*/}
             <Box
               sx={{
                 width: "50%",
@@ -82,7 +85,88 @@ export const ImagePage = (props) => {
                 placeContent: "center",
               }}
             >
-              右
+              {/*本の右側の画像表示*/}
+              {/*imagePageDataのrightが1つか4つか、 true:false*/}
+              {imagePageData[pageNumber].length === 1 ? (
+                <Box
+                  component={"img"}
+                  src={imagePageData[pageNumber].right[0]}
+                  alt=""
+                  sx={{
+                    objectFit: "contain",
+                    position: "fixed",
+                    top: "48%",
+                    left: "70%",
+                    transform: "translate(-50%, -50%)",
+                    width: "30vw",
+                    height: "30vw",
+                  }}
+                  referrerPolicy="no-referrer"
+                ></Box>
+              ) : (
+                <Box>
+                  <Box
+                    component={"img"}
+                    src={imagePageData[pageNumber].right[0]}
+                    alt=""
+                    sx={{
+                      objectFit: "contain",
+                      position: "fixed",
+                      top: "36%",
+                      left: "62%",
+                      transform: "translate(-50%, -50%)",
+                      width: "13w",
+                      height: "15vw",
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Box
+                    component={"img"}
+                    src={imagePageData[pageNumber].right[1]}
+                    alt=""
+                    sx={{
+                      objectFit: "contain",
+                      position: "fixed",
+                      top: "36%",
+                      left: "75%",
+                      transform: "translate(-50%, -50%)",
+                      width: "13vw",
+                      height: "15vw",
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Box
+                    component={"img"}
+                    src={imagePageData[pageNumber].right[2]}
+                    alt=""
+                    sx={{
+                      objectFit: "contain",
+                      position: "fixed",
+                      top: "61%",
+                      left: "62%",
+                      transform: "translate(-50%, -50%)",
+                      width: "13vw",
+                      height: "15vw",
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Box
+                    component={"img"}
+                    src={imagePageData[pageNumber].right[3]}
+                    alt=""
+                    sx={{
+                      objectFit: "contain",
+                      position: "fixed",
+                      top: "61%",
+                      left: "75%",
+                      transform: "translate(-50%, -50%)",
+                      width: "13vw",
+                      height: "15vw",
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                </Box>
+              )}
             </Box>
           </Box>
         </Box>
