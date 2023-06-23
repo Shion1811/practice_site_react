@@ -104,66 +104,44 @@ export const ImagePage = (props) => {
                   referrerPolicy="no-referrer"
                 ></Box>
               ) : (
-                <Box>
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: "15vw 15vw",
+                    gridTemplateRows: "13vw 13vw",
+                  }}
+                >
                   <Box
                     component={"img"}
                     src={imagePageData[pageNumber].right[0]}
                     alt=""
-                    sx={{
-                      objectFit: "contain",
-                      position: "fixed",
-                      top: "36%",
-                      left: "62%",
-                      transform: "translate(-50%, -50%)",
-                      width: "13w",
-                      height: "15vw",
-                    }}
                     referrerPolicy="no-referrer"
+                    width="15vw"
+                    height="13vw"
                   />
                   <Box
                     component={"img"}
                     src={imagePageData[pageNumber].right[1]}
                     alt=""
-                    sx={{
-                      objectFit: "contain",
-                      position: "fixed",
-                      top: "36%",
-                      left: "75%",
-                      transform: "translate(-50%, -50%)",
-                      width: "13vw",
-                      height: "15vw",
-                    }}
                     referrerPolicy="no-referrer"
+                    width="15vw"
+                    height="13vw"
                   />
                   <Box
                     component={"img"}
                     src={imagePageData[pageNumber].right[2]}
                     alt=""
-                    sx={{
-                      objectFit: "contain",
-                      position: "fixed",
-                      top: "61%",
-                      left: "62%",
-                      transform: "translate(-50%, -50%)",
-                      width: "13vw",
-                      height: "15vw",
-                    }}
                     referrerPolicy="no-referrer"
+                    width="15vw"
+                    height="13vw"
                   />
                   <Box
                     component={"img"}
                     src={imagePageData[pageNumber].right[3]}
                     alt=""
-                    sx={{
-                      objectFit: "contain",
-                      position: "fixed",
-                      top: "61%",
-                      left: "75%",
-                      transform: "translate(-50%, -50%)",
-                      width: "13vw",
-                      height: "15vw",
-                    }}
                     referrerPolicy="no-referrer"
+                    width="15vw"
+                    height="13vw"
                   />
                 </Box>
               )}
