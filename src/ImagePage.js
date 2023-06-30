@@ -41,99 +41,101 @@ export const ImagePage = (props) => {
               インコ
             </Typography>
           </AppBar>
-          {/*大元の本枠*/}
-          <Box
-            sx={{
-              backgroundImage: "url(/Book.svg)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              width: "calc(700px * 1.6)",
-              height: "calc(400px * 1.6)",
-              backgroundSize: "contain",
-              margin: "100px auto",
-              display: "flex",
-            }}
-          >
-            {" "}
-            {/*本の左側*/}
+          <Box>
+            {/*大元の本枠*/}
             <Box
               sx={{
-                width: "50%",
-                display: "grid",
-                placeContent: "center",
+                backgroundImage: "url(/Book.svg)",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                width: "calc(700px * 1.6)",
+                height: "calc(400px * 1.6)",
+                backgroundSize: "contain",
+                margin: "100px auto",
+                display: "flex",
               }}
             >
-              {/*本の左側の画像表示*/}
+              {" "}
+              {/*本の左側*/}
               <Box
-                component={"img"}
-                src={imagePageData[pageNumber].left}
-                /*視覚障害者向け*/
-                alt=""
                 sx={{
-                  width: "100%",
-                  height: "70%",
-                  objectFit: "contain",
-                  marginTop: "20%",
+                  width: "50%",
+                  display: "grid",
+                  placeContent: "center",
                 }}
-              />
-            </Box>
-            {/*本の右側*/}
-            <Box
-              sx={{
-                display: "grid",
-                placeContent: "center",
-                width: "calc(50% - 48px * 2)",
-                padding: "48px",
-              }}
-            >
-              {/*本の右側の画像表示*/}
-              {/*imagePageDataのrightが1つか4つか、 true:false*/}
-              {imagePageData[pageNumber].length === 1 ? (
+              >
+                {/*本の左側の画像表示*/}
                 <Box
                   component={"img"}
-                  src={imagePageData[pageNumber].right[0]}
+                  src={imagePageData[pageNumber].left}
+                  /*視覚障害者向け*/
                   alt=""
                   sx={{
+                    width: "100%",
+                    height: "70%",
                     objectFit: "contain",
-                    position: "fixed",
-                    top: "48%",
-                    left: "70%",
-                    transform: "translate(-50%, -50%)",
-                    width: "30vw",
-                    height: "30vw",
+                    marginTop: "20%",
                   }}
-                  referrerPolicy="no-referrer"
-                ></Box>
-              ) : (
-                <Box
-                  sx={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gridTemplateRows: "1fr 1fr",
-                  }}
-                >
-                  {/*右側の写真複数回実行*/}
-                  {imagePageData[pageNumber].right.map((item) => (
-                    <Box
-                      sx={{
-                        display: "grid",
-                      }}
-                    >
+                />
+              </Box>
+              {/*本の右側*/}
+              <Box
+                sx={{
+                  display: "grid",
+                  placeContent: "center",
+                  width: "calc(50% - 48px * 2)",
+                  padding: "48px",
+                }}
+              >
+                {/*本の右側の画像表示*/}
+                {/*imagePageDataのrightが1つか4つか、 true:false*/}
+                {imagePageData[pageNumber].length === 1 ? (
+                  <Box
+                    component={"img"}
+                    src={imagePageData[pageNumber].right[0]}
+                    alt=""
+                    sx={{
+                      objectFit: "contain",
+                      position: "fixed",
+                      top: "48%",
+                      left: "70%",
+                      transform: "translate(-50%, -50%)",
+                      width: "30vw",
+                      height: "30vw",
+                    }}
+                    referrerPolicy="no-referrer"
+                  ></Box>
+                ) : (
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gridTemplateRows: "1fr 1fr",
+                    }}
+                  >
+                    {/*右側の写真複数回実行*/}
+                    {imagePageData[pageNumber].right.map((item) => (
                       <Box
-                        component={"img"}
-                        src={item}
-                        alt=""
-                        referrerPolicy="no-referrer"
                         sx={{
-                          objectFit: "contain",
-                          width: "80%",
-                          height: "80%",
+                          display: "grid",
                         }}
-                      />
-                    </Box>
-                  ))}
-                </Box>
-              )}
+                      >
+                        <Box
+                          component={"img"}
+                          src={item}
+                          alt=""
+                          referrerPolicy="no-referrer"
+                          sx={{
+                            objectFit: "contain",
+                            width: "80%",
+                            height: "80%",
+                          }}
+                        />
+                      </Box>
+                    ))}
+                  </Box>
+                )}
+              </Box>
             </Box>
           </Box>
         </Box>
