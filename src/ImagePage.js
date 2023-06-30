@@ -80,9 +80,10 @@ export const ImagePage = (props) => {
             {/*本の右側*/}
             <Box
               sx={{
-                width: "50%",
                 display: "grid",
                 placeContent: "center",
+                width: "calc(50% - 48px * 2)",
+                padding: "48px",
               }}
             >
               {/*本の右側の画像表示*/}
