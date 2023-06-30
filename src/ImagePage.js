@@ -1,7 +1,7 @@
 import { AppBar, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { imagePageData } from "./App";
-import { ChevronLeft } from "@mui/icons-material";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 //ImagePageを宣言
 export const ImagePage = (props) => {
   //その他コード
@@ -147,6 +147,9 @@ export const ImagePage = (props) => {
                 )}
               </Box>
             </Box>
+            <IconButton>
+              <ChevronRight></ChevronRight>
+            </IconButton>
           </Box>
         </Box>
       </Box>
