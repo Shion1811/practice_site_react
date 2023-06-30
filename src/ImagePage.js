@@ -41,7 +41,18 @@ export const ImagePage = (props) => {
               インコ
             </Typography>
           </AppBar>
-          <Box>
+          <Box
+            sx={{
+              marginTop: "64px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/*左側の矢印ボタン*/}
+            <IconButton>
+              <ChevronLeft></ChevronLeft>
+            </IconButton>
             {/*大元の本枠*/}
             <Box
               sx={{
@@ -51,7 +62,6 @@ export const ImagePage = (props) => {
                 width: "calc(700px * 1.6)",
                 height: "calc(400px * 1.6)",
                 backgroundSize: "contain",
-                margin: "100px auto",
                 display: "flex",
               }}
             >
