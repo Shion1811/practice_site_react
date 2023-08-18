@@ -2,6 +2,7 @@ import { AppBar, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { imagePageData } from "./App";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { useHistory } from "react-router-dom";
 //ImagePageを宣言
 export const ImagePage = (props) => {
   //その他コード
@@ -9,6 +10,13 @@ export const ImagePage = (props) => {
   //const pageNumber = location.params["pageNumber"];
   const pageNumber = props.match.params["pageNumber"];
   //returnしてる（一関数につき一つ）
+  const history = useHistory();
+  const handleClickLeftButton = () => {
+    history.push("/image/" + (Number(pageNumber) - 1));
+  };
+  const handleClickRightButton = () => {
+    history.push("/image/" + (Number(pageNumber) + 1));
+  };
   return (
     <>
       {/*角の白枠背景 */}
@@ -50,7 +58,7 @@ export const ImagePage = (props) => {
             }}
           >
             {/*左側の矢印ボタン*/}
-            <IconButton>
+            <IconButton onClick={handleClickLeftButton}>
               <ChevronLeft></ChevronLeft>
             </IconButton>
             {/*大元の本枠*/}
@@ -147,7 +155,8 @@ export const ImagePage = (props) => {
                 )}
               </Box>
             </Box>
-            <IconButton>
+            {/*右側の矢印ボタン*/}
+            <IconButton onClick={handleClickRightButton}>
               <ChevronRight></ChevronRight>
             </IconButton>
           </Box>
