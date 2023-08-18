@@ -8,7 +8,7 @@ export const ImagePage = (props) => {
   //その他コード
   console.log(props);
   //const pageNumber = location.params["pageNumber"];
-  const pageNumber = props.match.params["pageNumber"];
+  const pageNumber = Number(props.match.params["pageNumber"] || "0");
   //returnしてる（一関数につき一つ）
   const history = useHistory();
   const handleClickLeftButton = () => {
@@ -58,7 +58,10 @@ export const ImagePage = (props) => {
             }}
           >
             {/*左側の矢印ボタン*/}
-            <IconButton onClick={handleClickLeftButton}>
+            <IconButton
+              onClick={handleClickLeftButton}
+              disabled={pageNumber - 1 < 0}
+            >
               <ChevronLeft></ChevronLeft>
             </IconButton>
             {/*大元の本枠*/}
@@ -156,7 +159,10 @@ export const ImagePage = (props) => {
               </Box>
             </Box>
             {/*右側の矢印ボタン*/}
-            <IconButton onClick={handleClickRightButton}>
+            <IconButton
+              onClick={handleClickRightButton}
+              disabled={pageNumber + 1 >= imagePageData.length}
+            >
               <ChevronRight></ChevronRight>
             </IconButton>
           </Box>
