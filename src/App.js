@@ -65,6 +65,18 @@ export const App = () => {
     setValue(newValue);
     return;
   };
+  const imagePathContext = require.context(
+    "../public/images/bird_jpg",
+    true,
+    /\.JPG$/
+  );
+  const imageItems = imagePathContext.keys().map((imagePath) => ({
+    path: imagePath,
+    url: imagePathContext(imagePath),
+    date: imagePath.slice(2, 10),
+  }));
+
+  console.log(imageItems);
   //jsxをリターン
   return (
     <BrowserRouter>
@@ -115,6 +127,14 @@ export const App = () => {
             <Box sx={{ marginTop: "70px" }}>
               <TabPanel value={value} index={0}>
                 <Typography sx={{ textAlign: "left" }}>1.1</Typography>
+                {imageItems.map((item, i) => (
+                  <Image
+                    key={item.path}
+                    URL={item.url}
+                    referrerpolicy="no-referrer"
+                    alt={`インコの写真${i + 1}`}
+                  />
+                ))}
                 <a href="/1">
                   <Image
                     URL="https://lh3.googleusercontent.com/p9FeAwPp5gPcqSnLuz4m9ylgh3icztO1kOWg6nXy0sf1ZkmXJUddhyqwaxYTnvM41rNIlLRtVRy3d9UPXdPs_y0F8VlZKTVhnjPD_xGG9-LgvF5zgMI7PyLxeK6i9c6JkGBMemryQK-OaXS249PqvJmSz8tLIW8_bHyVKIgeSZMp9v35vAf23I-mK653TbN-_SeE463VXXldy1Ovciz-yJpXPr0zspuY9FiDHj_woHDRxBWlKLLh4Y16s2OLM17Hc9aPUhkarczm6WclkAQpQ6Bxzd7bTtZajO-hvUhcTYTrZLEfB0m5sYga19cMPvOJZlcR5wsiPe8uO-DWVma7sbLSZVcPuBd2r14mGBuApa8ZVKE8VQhp3rxlkg7O_CMD4wQRtrM-LP_q_wvcJOYIn2isYzXnskdVWJcmB1TI4IhNUZkIKMMiyCwvhMfSiATITQT4aL4CzWbSsuLZE_k6Y-fkQjiwydx54njhRusl89zRdSJKq63JMnf6y97XVcQLkfyGVdjjeliE7q_iypXYzdHEcBzR8SNvUe254oK9djhvqdAWIQjck2ieeOATrsMLbo0YsKqssNfKySFGq0X4Ez5FWuAYZsQcteUce_n2rI4v0xfSc1CSaEWM1PwrqjcqShdxs3A3eWCrxAVA3mF_F-hDlSJzKMx4awEVDXR7vxZYXljo8xOqRmeXNBdnDZqqBtx3gyzislSrzasbqwujxzbAkfN83BZbo8SXWH8GAHf_zGbs2mGt9GFdDLiO0EqX-I_oMn9k270fWwlJsG10rt-N191hpvqw17PQvNOHXIC6jiMMmaXx6wK9rlBTGOvQfRgWm2OL-3kme1I90sddHpiE9OYpRPQmBdWkyCOKt-JyNbjYaUNBxBU094AX852gUEQvbkfvlTm4sVrYQsFSbkMxZW9XO-BG4dtt0L__wut31a60uu6bFGUWFdpVBcBLGVmHh_DCl_PFMRFQUJJg0Q=w1454-h1938-no?authuser=0"
