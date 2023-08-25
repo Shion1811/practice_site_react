@@ -7,6 +7,7 @@ import { Modal } from "./Modal";
 import { BrowserRouter, Route } from "react-router-dom";
 import { ImagePage } from "./ImagePage";
 import { useHistory } from "react-router-dom";
+import groupBy from "just-group-by";
 
 //imagePageDataの名前が分からない　定数なのか変数なのか
 export const imagePageData = [
@@ -70,13 +71,14 @@ export const App = () => {
     true,
     /\.JPG$/
   );
+  //写真日付表示
   const imageItems = imagePathContext.keys().map((imagePath) => ({
     path: imagePath,
     url: imagePathContext(imagePath),
     date: imagePath.slice(2, 10),
   }));
 
-  console.log(imageItems);
+  console.log(groupBy(imageItems, (item) => item.date));
   //jsxをリターン
   return (
     <BrowserRouter>
