@@ -127,7 +127,7 @@ export const App = () => {
                 {Object.keys(groupedImageItems)
                   .sort()
                   .map((date) => (
-                    <Box>
+                    <Box key={date}>
                       <Typography sx={{ textAlign: "left" }}>{date}</Typography>
                       {groupedImageItems[date].map((item, i) => (
                         <Image
