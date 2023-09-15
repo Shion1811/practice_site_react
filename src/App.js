@@ -131,12 +131,19 @@ export const App = () => {
                       {/* 日付け表示 */}
                       <Typography sx={{ textAlign: "left" }}>{date}</Typography>
                       {groupedImageItems[date].map((item, i) => (
-                        <Image
+                        <Box
                           key={item.path}
-                          URL={item.url}
-                          referrerpolicy="no-referrer"
-                          alt={`インコの写真${i + 1}`}
-                        />
+                          sx={{
+                            display: "inline-block",
+                          }}
+                        >
+                          <img
+                            src={item.url}
+                            alt={`インコの写真${i + 1}`}
+                            width={200}
+                            height={200}
+                          />
+                        </Box>
                       ))}
                     </Box>
                   ))}
