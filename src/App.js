@@ -134,11 +134,14 @@ export const App = () => {
                         sx={{
                           position: "relative",
                           height: 200,
+                          margin: 8,
                         }}
                       >
-                        {groupedImageItems[date].map((item, i) => (
+                        {groupedImageItems[date].map((item, i, { length }) => (
                           <Box
                             sx={{
+                              transform: `rotate(${i * -5}deg)`,
+                              zIndex: length - i * 1,
                               position: "absolute",
                             }}
                             key={item.path}
