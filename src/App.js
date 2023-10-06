@@ -124,41 +124,51 @@ export const App = () => {
             </AppBar>
             <Box sx={{ marginTop: "70px" }}>
               <TabPanel value={value} index={0}>
-                {Object.keys(groupedImageItems)
-                  .sort()
-                  .map((date) => (
-                    <Box key={date}>
-                      {/* 日付け表示 */}
-                      <Typography sx={{ textAlign: "left" }}>{date}</Typography>
-                      <Box
-                        sx={{
-                          position: "relative",
-                          height: 200,
-                          margin: 8,
-                        }}
-                      >
-                        {groupedImageItems[date]
-                          .slice(0, 3)
-                          .map((item, i, { length }) => (
-                            <Box
-                              sx={{
-                                transform: `rotate(${i * -5}deg)`,
-                                zIndex: length - i * 1,
-                                position: "absolute",
-                              }}
-                              key={item.path}
-                            >
-                              <img
-                                src={item.url}
-                                alt={`インコの写真${i + 1}`}
-                                width={200}
-                                height={200}
-                              />
-                            </Box>
-                          ))}
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateRows: "repeat(3, calc(20px + (8px * 2)))",
+                    gridTemplateColumns: "repeat(3, calc(20px + (8px * 2)))",
+                  }}
+                >
+                  {Object.keys(groupedImageItems)
+                    .sort()
+                    .map((date) => (
+                      <Box key={date}>
+                        {/* 日付け表示 */}
+                        <Typography sx={{ textAlign: "left" }}>
+                          {date}
+                        </Typography>
+                        <Box
+                          sx={{
+                            position: "relative",
+                            height: 200,
+                            margin: 8,
+                          }}
+                        >
+                          {groupedImageItems[date]
+                            .slice(0, 3)
+                            .map((item, i, { length }) => (
+                              <Box
+                                sx={{
+                                  transform: `rotate(${i * -5}deg)`,
+                                  zIndex: length - i * 1,
+                                  position: "absolute",
+                                }}
+                                key={item.path}
+                              >
+                                <img
+                                  src={item.url}
+                                  alt={`インコの写真${i + 1}`}
+                                  width={200}
+                                  height={200}
+                                />
+                              </Box>
+                            ))}
+                        </Box>
                       </Box>
-                    </Box>
-                  ))}
+                    ))}
+                </Box>
               </TabPanel>
               <TabPanel value={value} index={1}></TabPanel>
               <TabPanel value={value} index={2}>
