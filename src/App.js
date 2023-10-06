@@ -137,23 +137,25 @@ export const App = () => {
                           margin: 8,
                         }}
                       >
-                        {groupedImageItems[date].map((item, i, { length }) => (
-                          <Box
-                            sx={{
-                              transform: `rotate(${i * -5}deg)`,
-                              zIndex: length - i * 1,
-                              position: "absolute",
-                            }}
-                            key={item.path}
-                          >
-                            <img
-                              src={item.url}
-                              alt={`インコの写真${i + 1}`}
-                              width={200}
-                              height={200}
-                            />
-                          </Box>
-                        ))}
+                        {groupedImageItems[date]
+                          .slice(0, 3)
+                          .map((item, i, { length }) => (
+                            <Box
+                              sx={{
+                                transform: `rotate(${i * -5}deg)`,
+                                zIndex: length - i * 1,
+                                position: "absolute",
+                              }}
+                              key={item.path}
+                            >
+                              <img
+                                src={item.url}
+                                alt={`インコの写真${i + 1}`}
+                                width={200}
+                                height={200}
+                              />
+                            </Box>
+                          ))}
                       </Box>
                     </Box>
                   ))}
