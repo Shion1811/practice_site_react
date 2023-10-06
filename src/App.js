@@ -130,21 +130,28 @@ export const App = () => {
                     <Box key={date}>
                       {/* 日付け表示 */}
                       <Typography sx={{ textAlign: "left" }}>{date}</Typography>
-                      {groupedImageItems[date].map((item, i) => (
-                        <Box
-                          key={item.path}
-                          sx={{
-                            display: "inline-block",
-                          }}
-                        >
-                          <img
-                            src={item.url}
-                            alt={`インコの写真${i + 1}`}
-                            width={200}
-                            height={200}
-                          />
-                        </Box>
-                      ))}
+                      <Box
+                        sx={{
+                          position: "relative",
+                          height: 200,
+                        }}
+                      >
+                        {groupedImageItems[date].map((item, i) => (
+                          <Box
+                            sx={{
+                              position: "absolute",
+                            }}
+                            key={item.path}
+                          >
+                            <img
+                              src={item.url}
+                              alt={`インコの写真${i + 1}`}
+                              width={200}
+                              height={200}
+                            />
+                          </Box>
+                        ))}
+                      </Box>
                     </Box>
                   ))}
               </TabPanel>
