@@ -127,23 +127,25 @@ export const App = () => {
                 <Box
                   sx={{
                     display: "grid",
-                    gridTemplateRows: "repeat(3, calc(20px + (8px * 2)))",
-                    gridTemplateColumns: "repeat(3, calc(20px + (8px * 2)))",
+                    gridTemplateRows:
+                      "repeat(3, calc(200px + 32px + (8px * 2)))",
+                    gridTemplateColumns: "repeat(3, calc(200px + (8px * 2)))",
                   }}
                 >
                   {Object.keys(groupedImageItems)
                     .sort()
                     .map((date) => (
-                      <Box key={date}>
+                      <Box key={date} sx={{ padding: "8px" }}>
                         {/* 日付け表示 */}
-                        <Typography sx={{ textAlign: "left" }}>
+                        <Typography
+                          sx={{ textAlign: "left", marginBottom: "8px" }}
+                        >
                           {date}
                         </Typography>
                         <Box
                           sx={{
                             position: "relative",
                             height: 200,
-                            margin: 8,
                           }}
                         >
                           {groupedImageItems[date]
